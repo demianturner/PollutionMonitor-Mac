@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD11550C1DFFF006003FCF4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11550B1DFFF006003FCF4D /* AppDelegate.m */; };
+		AD11550F1DFFF006003FCF4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11550E1DFFF006003FCF4D /* main.m */; };
+		AD1155111DFFF006003FCF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD1155101DFFF006003FCF4D /* Assets.xcassets */; };
+		AD1155141DFFF006003FCF4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1155121DFFF006003FCF4D /* MainMenu.xib */; };
+		AD11551F1DFFF006003FCF4D /* PollutionMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD11551B1DFFF006003FCF4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD1154FF1DFFF006003FCF4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD1155061DFFF006003FCF4D;
+			remoteInfo = PollutionMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD1155071DFFF006003FCF4D /* PollutionMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollutionMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD11550A1DFFF006003FCF4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD11550B1DFFF006003FCF4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD11550E1DFFF006003FCF4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD1155101DFFF006003FCF4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD1155131DFFF006003FCF4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AD1155151DFFF006003FCF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD11551A1DFFF006003FCF4D /* PollutionMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollutionMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollutionMonitorTests.m; sourceTree = "<group>"; };
+		AD1155201DFFF006003FCF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD1155041DFFF006003FCF4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD1155171DFFF006003FCF4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD1154FE1DFFF006003FCF4D = {
+			isa = PBXGroup;
+			children = (
+				AD1155091DFFF006003FCF4D /* PollutionMonitor */,
+				AD11551D1DFFF006003FCF4D /* PollutionMonitorTests */,
+				AD1155081DFFF006003FCF4D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD1155081DFFF006003FCF4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD1155071DFFF006003FCF4D /* PollutionMonitor.app */,
+				AD11551A1DFFF006003FCF4D /* PollutionMonitorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD1155091DFFF006003FCF4D /* PollutionMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				AD11550A1DFFF006003FCF4D /* AppDelegate.h */,
+				AD11550B1DFFF006003FCF4D /* AppDelegate.m */,
+				AD1155101DFFF006003FCF4D /* Assets.xcassets */,
+				AD1155121DFFF006003FCF4D /* MainMenu.xib */,
+				AD1155151DFFF006003FCF4D /* Info.plist */,
+				AD11550D1DFFF006003FCF4D /* Supporting Files */,
+			);
+			path = PollutionMonitor;
+			sourceTree = "<group>";
+		};
+		AD11550D1DFFF006003FCF4D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD11550E1DFFF006003FCF4D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD11551D1DFFF006003FCF4D /* PollutionMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */,
+				AD1155201DFFF006003FCF4D /* Info.plist */,
+			);
+			path = PollutionMonitorTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD1155061DFFF006003FCF4D /* PollutionMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD1155231DFFF006003FCF4D /* Build configuration list for PBXNativeTarget "PollutionMonitor" */;
+			buildPhases = (
+				AD1155031DFFF006003FCF4D /* Sources */,
+				AD1155041DFFF006003FCF4D /* Frameworks */,
+				AD1155051DFFF006003FCF4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PollutionMonitor;
+			productName = PollutionMonitor;
+			productReference = AD1155071DFFF006003FCF4D /* PollutionMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD1155191DFFF006003FCF4D /* PollutionMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD1155261DFFF006003FCF4D /* Build configuration list for PBXNativeTarget "PollutionMonitorTests" */;
+			buildPhases = (
+				AD1155161DFFF006003FCF4D /* Sources */,
+				AD1155171DFFF006003FCF4D /* Frameworks */,
+				AD1155181DFFF006003FCF4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD11551C1DFFF006003FCF4D /* PBXTargetDependency */,
+			);
+			name = PollutionMonitorTests;
+			productName = PollutionMonitorTests;
+			productReference = AD11551A1DFFF006003FCF4D /* PollutionMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD1154FF1DFFF006003FCF4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Seagull Systems";
+				TargetAttributes = {
+					AD1155061DFFF006003FCF4D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8A3XPM2KYU;
+						ProvisioningStyle = Automatic;
+					};
+					AD1155191DFFF006003FCF4D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8A3XPM2KYU;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AD1155061DFFF006003FCF4D;
+					};
+				};
+			};
+			buildConfigurationList = AD1155021DFFF006003FCF4D /* Build configuration list for PBXProject "PollutionMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD1154FE1DFFF006003FCF4D;
+			productRefGroup = AD1155081DFFF006003FCF4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD1155061DFFF006003FCF4D /* PollutionMonitor */,
+				AD1155191DFFF006003FCF4D /* PollutionMonitorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD1155051DFFF006003FCF4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD1155111DFFF006003FCF4D /* Assets.xcassets in Resources */,
+				AD1155141DFFF006003FCF4D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD1155181DFFF006003FCF4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD1155031DFFF006003FCF4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD11550F1DFFF006003FCF4D /* main.m in Sources */,
+				AD11550C1DFFF006003FCF4D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD1155161DFFF006003FCF4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD11551F1DFFF006003FCF4D /* PollutionMonitorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD11551C1DFFF006003FCF4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD1155061DFFF006003FCF4D /* PollutionMonitor */;
+			targetProxy = AD11551B1DFFF006003FCF4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD1155121DFFF006003FCF4D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD1155131DFFF006003FCF4D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD1155211DFFF006003FCF4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AD1155221DFFF006003FCF4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AD1155241DFFF006003FCF4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8A3XPM2KYU;
+				INFOPLIST_FILE = PollutionMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AD1155251DFFF006003FCF4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8A3XPM2KYU;
+				INFOPLIST_FILE = PollutionMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AD1155271DFFF006003FCF4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8A3XPM2KYU;
+				INFOPLIST_FILE = PollutionMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PollutionMonitor.app/Contents/MacOS/PollutionMonitor";
+			};
+			name = Debug;
+		};
+		AD1155281DFFF006003FCF4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8A3XPM2KYU;
+				INFOPLIST_FILE = PollutionMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PollutionMonitor.app/Contents/MacOS/PollutionMonitor";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD1155021DFFF006003FCF4D /* Build configuration list for PBXProject "PollutionMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD1155211DFFF006003FCF4D /* Debug */,
+				AD1155221DFFF006003FCF4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD1155231DFFF006003FCF4D /* Build configuration list for PBXNativeTarget "PollutionMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD1155241DFFF006003FCF4D /* Debug */,
+				AD1155251DFFF006003FCF4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AD1155261DFFF006003FCF4D /* Build configuration list for PBXNativeTarget "PollutionMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD1155271DFFF006003FCF4D /* Debug */,
+				AD1155281DFFF006003FCF4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD1154FF1DFFF006003FCF4D /* Project object */;
+}
