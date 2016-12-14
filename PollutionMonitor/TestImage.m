@@ -85,8 +85,8 @@ static NSColor* burgandy;
 
 + (NSImage *)imageOfMyImage:(int)measurement
 {
-    if (_imageOfMyImage)
-        return _imageOfMyImage;
+//    if (_imageOfMyImage)
+//        return _imageOfMyImage;
 
     _imageOfMyImage = [NSImage imageWithSize: NSMakeSize(60, 21) flipped:NO drawingHandler: ^(NSRect dstRect)
     {
