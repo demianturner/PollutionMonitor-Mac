@@ -22,6 +22,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    // update hourly
     float oneHourInSeconds = 60.0 * 60.0;
     [NSTimer scheduledTimerWithTimeInterval:oneHourInSeconds
                                      target:self
@@ -29,17 +30,41 @@
                                    userInfo:nil
                                     repeats:YES];
     
+    // udpate reading when Mac wakes
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(timerFired:)
+                                                               name: NSWorkspaceDidWakeNotification object: NULL];
+    
     [self initializeStatusBarItem];
     
-    NSString *portTitle = @"Preferencees";
+    NSString *lastUpdatedTitle = @"Updating ...";
+    NSString *prefTitle = @"Preferencees";
     NSString *quitTitle = @"Quit";
-    self.statusItem.menu = [self initializeStatusBarMenu:@{
-       portTitle: [NSValue valueWithPointer:nil],
-       quitTitle: [NSValue valueWithPointer:@selector(terminate:)]
-       }];
+				
+    NSDictionary *one = @{lastUpdatedTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *two = @{prefTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *three = @{quitTitle : [NSValue valueWithPointer:@selector(terminate:)]};
+    NSArray *menuItemsArray = @[one, two, three];
+    
+    self.statusItem.menu = [self initializeStatusBarMenu:menuItemsArray];
     
     // first call
     [self performSelector:@selector(timerFired:) withObject:nil];
+}
+
+- (NSMenu *)initializeStatusBarMenu:(NSArray *)menuItemsArray
+{
+    NSMenu *menu = [[NSMenu alloc] init];
+    
+    for (NSDictionary *menuItems in menuItemsArray) {
+        [menuItems enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSValue *val, BOOL *stop) {
+            SEL action = nil;
+            [val getValue:&action];
+            [menu addItemWithTitle:key action:action keyEquivalent:@""];
+        }];
+    }
+    
+    return menu;
 }
 
 - (void)timerFired:(NSTimer *)timer
@@ -52,12 +77,11 @@
                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                               NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                               NSString *measurement = jsonData[@"aqiv"];
+                                              NSString *updateTime = jsonData[@"utime"];
                                               int reading = [measurement intValue];
-                                              [self updateStatusItemWithReading:reading];
+                                              [self updateStatusItemWith:reading updatedAt:updateTime];
                                               NSLog(@"%@", jsonData);
                                           }];
-    
-    // 3
     [downloadTask resume];
     
     
@@ -70,10 +94,13 @@
 //    [dataTask resume];
 }
 
-- (void)updateStatusItemWithReading:(int)reading
+- (void)updateStatusItemWith:(int)reading updatedAt:(NSString *)updatedString
 {
     NSImage *image = [TestImage imageOfMyImage:reading];
     [self.statusItem setImage:image];
+    NSMenuItem *menuItem = [self.statusItem.menu itemAtIndex:0];
+    NSString *lastUpdated = [@"Last Updated: " stringByAppendingString:updatedString];
+    [menuItem setTitle:lastUpdated];
 }
 
 - (void)initializeStatusBarItem {
@@ -81,18 +108,6 @@
     self.statusItem.highlightMode = YES;
     NSStatusBarButton *button = self.statusItem.button;
     button.action = @selector(buttonClicked2:);
-}
-
-- (NSMenu *)initializeStatusBarMenu:(NSDictionary *)menuDictionary {
-    NSMenu *menu = [[NSMenu alloc] init];
-    
-    [menuDictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSValue *val, BOOL *stop) {
-        SEL action = nil;
-        [val getValue:&action];
-        [menu addItemWithTitle:key action:action keyEquivalent:@""];
-    }];
-    
-    return menu;
 }
 
 - (IBAction)buttonClicked2:(NSStatusBarButton *)sender
