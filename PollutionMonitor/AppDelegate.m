@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TestImage.h"
 #import "PopoverViewController.h"
+#import "NSString+Sha1.h"
 
 @interface AppDelegate()
 
@@ -48,7 +49,7 @@
     
     self.statusItem.menu = [self initializeStatusBarMenu:menuItemsArray];
     
-    // first call
+    // invoke first call, rest done by timer
     [self performSelector:@selector(timerFired:) withObject:nil];
 }
 
@@ -69,7 +70,15 @@
 
 - (void)timerFired:(NSTimer *)timer
 {
-    NSString *dataUrl = @"https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2";
+    NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
+    int cityCode = 1481; // Haerbin (main)
+//    int cityCode = 1282; // Taiping Hongwei Park, Haerbin, to right of bridge
+//    int cityCode = 1437; // Shanghai
+//    int cityCode = 1451; // Beijing
+    NSString *uuidString = [[NSUUID UUID] UUIDString];
+    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
+    NSString *dataUrl = [NSString stringWithFormat:@"%@:%d?%@", feedUrl, cityCode, sha1Hash];
+    // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
     NSURL *url = [NSURL URLWithString:dataUrl];
     
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
@@ -83,15 +92,6 @@
                                               NSLog(@"%@", jsonData);
                                           }];
     [downloadTask resume];
-    
-    
-//    NSURLSession *session = [NSURLSession sharedSession];
-//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:theRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//        NSLog(@"%@", json);
-//    }];
-//
-//    [dataTask resume];
 }
 
 - (void)updateStatusItemWith:(int)reading updatedAt:(NSString *)updatedString
@@ -99,8 +99,12 @@
     NSImage *image = [TestImage imageOfMyImage:reading];
     [self.statusItem setImage:image];
     NSMenuItem *menuItem = [self.statusItem.menu itemAtIndex:0];
-    NSString *lastUpdated = [@"Last Updated: " stringByAppendingString:updatedString];
+    NSString *lastUpdated = [@"Server Last Updated: " stringByAppendingString:updatedString];
     [menuItem setTitle:lastUpdated];
+    
+    NSLog(@"timer fired");
+    NSLog(@"Server Last Updated %@", updatedString);
+    NSLog(@"reading %d", reading);
 }
 
 - (void)initializeStatusBarItem {
@@ -115,11 +119,12 @@
     NSLog(@"bar"); // never called because menu implemented for statusItem
 }
 
--(void)applicationWillTerminate:(NSNotification *)aNotification {
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
     
     [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
     self.statusItem = nil;
 }
+
 
 //- (IBAction)buttonClicked:(NSStatusBarButton *)sender
 //{

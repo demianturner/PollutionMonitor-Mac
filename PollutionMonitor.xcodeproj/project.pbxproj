@@ -15,6 +15,7 @@
 		ADDCE2171E01036800E596D1 /* TestImage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCE2161E01036800E596D1 /* TestImage.m */; };
 		ADFABBD91E0135EE00F978EB /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFABBD71E0135EE00F978EB /* PopoverViewController.m */; };
 		ADFABBDA1E0135EE00F978EB /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADFABBD81E0135EE00F978EB /* PopoverViewController.xib */; };
+		ADFABBFE1E0284DB00F978EB /* NSString+Sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,9 @@
 		ADFABBD61E0135EE00F978EB /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		ADFABBD71E0135EE00F978EB /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 		ADFABBD81E0135EE00F978EB /* PopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
+		ADFABBFC1E0284DB00F978EB /* NSString+Sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Sha1.h"; sourceTree = "<group>"; };
+		ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Sha1.m"; sourceTree = "<group>"; };
+		ADFABC001E02856400F978EB /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 				AD1155091DFFF006003FCF4D /* PollutionMonitor */,
 				AD11551D1DFFF006003FCF4D /* PollutionMonitorTests */,
 				AD1155081DFFF006003FCF4D /* Products */,
+				ADFABBFF1E02856400F978EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +94,8 @@
 				AD11550A1DFFF006003FCF4D /* AppDelegate.h */,
 				AD11550B1DFFF006003FCF4D /* AppDelegate.m */,
 				ADFABBD61E0135EE00F978EB /* PopoverViewController.h */,
+				ADFABBFC1E0284DB00F978EB /* NSString+Sha1.h */,
+				ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */,
 				ADFABBD71E0135EE00F978EB /* PopoverViewController.m */,
 				ADFABBD81E0135EE00F978EB /* PopoverViewController.xib */,
 				AD1155101DFFF006003FCF4D /* Assets.xcassets */,
@@ -114,6 +121,14 @@
 				AD1155201DFFF006003FCF4D /* Info.plist */,
 			);
 			path = PollutionMonitorTests;
+			sourceTree = "<group>";
+		};
+		ADFABBFF1E02856400F978EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADFABC001E02856400F978EB /* libcommonCrypto.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +238,7 @@
 				ADFABBD91E0135EE00F978EB /* PopoverViewController.m in Sources */,
 				ADDCE2171E01036800E596D1 /* TestImage.m in Sources */,
 				AD11550F1DFFF006003FCF4D /* main.m in Sources */,
+				ADFABBFE1E0284DB00F978EB /* NSString+Sha1.m in Sources */,
 				AD11550C1DFFF006003FCF4D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +368,10 @@
 				DEVELOPMENT_TEAM = 8A3XPM2KYU;
 				INFOPLIST_FILE = PollutionMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -365,6 +385,10 @@
 				DEVELOPMENT_TEAM = 8A3XPM2KYU;
 				INFOPLIST_FILE = PollutionMonitor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
