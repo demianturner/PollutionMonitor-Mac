@@ -49,7 +49,7 @@ static NSColor* burgandy;
     if (measurement >= 0 && measurement <= 50) {
         theColor = green;
     } else if (measurement >= 51 && measurement <= 100) {
-        theColor = green;
+        theColor = yellow;
     } else if (measurement >= 101 && measurement <= 150) {
         theColor = orange;
     } else if (measurement >= 151 && measurement <= 200) {
@@ -59,6 +59,14 @@ static NSColor* burgandy;
     } else if (measurement >= 300 ) {
         theColor = burgandy;
     }
+    
+    NSColor *textColor;
+    if (measurement >= 51 && measurement <= 100) {
+        textColor = NSColor.blackColor;
+    } else {
+        textColor = NSColor.whiteColor;
+    }
+    
     
     [theColor setFill];
     [backgroundPath fill];
@@ -70,7 +78,7 @@ static NSColor* burgandy;
         NSMutableParagraphStyle* textStyle = [NSMutableParagraphStyle new];
         textStyle.alignment = NSTextAlignmentCenter;
 
-        NSDictionary* textFontAttributes = @{NSFontAttributeName: [NSFont menuBarFontOfSize: NSFont.systemFontSize], NSForegroundColorAttributeName: NSColor.whiteColor, NSParagraphStyleAttributeName: textStyle};
+        NSDictionary* textFontAttributes = @{NSFontAttributeName: [NSFont menuBarFontOfSize: NSFont.systemFontSize], NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: textStyle};
 
         CGFloat textTextHeight = NSHeight([textContent boundingRectWithSize: textRect.size options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes]);
         NSRect textTextRect = NSMakeRect(NSMinX(textRect), NSMinY(textRect) + (NSHeight(textRect) - textTextHeight) / 2, NSWidth(textRect), textTextHeight);
@@ -85,9 +93,6 @@ static NSColor* burgandy;
 
 + (NSImage *)imageOfMyImage:(int)measurement
 {
-//    if (_imageOfMyImage)
-//        return _imageOfMyImage;
-
     _imageOfMyImage = [NSImage imageWithSize: NSMakeSize(60, 21) flipped:NO drawingHandler: ^(NSRect dstRect)
     {
         [TestImage drawMyImage:measurement];
