@@ -24,7 +24,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // update hourly
-    float oneHourInSeconds = 60.0 * 60.0;
+    float oneHourInSeconds = 60.0 * 5;
     [NSTimer scheduledTimerWithTimeInterval:oneHourInSeconds
                                      target:self
                                    selector:@selector(timerFired:)
@@ -38,14 +38,16 @@
     
     [self initializeStatusBarItem];
     
-    NSString *lastUpdatedTitle = @"Updating ...";
+    NSString *lastUpdatedLocalTitle = @"Updating ...";
+    NSString *lastUpdatedServerTitle = @"Updating ...";
     NSString *prefTitle = @"Preferencees";
     NSString *quitTitle = @"Quit";
 				
-    NSDictionary *one = @{lastUpdatedTitle : [NSValue valueWithPointer:nil]};
-    NSDictionary *two = @{prefTitle : [NSValue valueWithPointer:nil]};
-    NSDictionary *three = @{quitTitle : [NSValue valueWithPointer:@selector(terminate:)]};
-    NSArray *menuItemsArray = @[one, two, three];
+    NSDictionary *one = @{lastUpdatedLocalTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *two = @{lastUpdatedServerTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *three = @{prefTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *four = @{quitTitle : [NSValue valueWithPointer:@selector(terminate:)]};
+    NSArray *menuItemsArray = @[one, two, three, four];
     
     self.statusItem.menu = [self initializeStatusBarMenu:menuItemsArray];
     
@@ -98,9 +100,19 @@
 {
     NSImage *image = [TestImage imageOfMyImage:reading];
     [self.statusItem setImage:image];
-    NSMenuItem *menuItem = [self.statusItem.menu itemAtIndex:0];
-    NSString *lastUpdated = [@"Server Last Updated: " stringByAppendingString:updatedString];
-    [menuItem setTitle:lastUpdated];
+    
+    // local update time
+    NSMenuItem *menuItemLocal = [self.statusItem.menu itemAtIndex:0];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *stringDate = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *lastUpdatedLocal = [@"Local Last Updated: " stringByAppendingString:stringDate];
+    [menuItemLocal setTitle:lastUpdatedLocal];
+    
+    // server update time
+    NSMenuItem *menuItemServer = [self.statusItem.menu itemAtIndex:1];
+    NSString *lastUpdatedServer = [@"Server Last Updated: " stringByAppendingString:updatedString];
+    [menuItemServer setTitle:lastUpdatedServer];
     
     NSLog(@"timer fired");
     NSLog(@"Server Last Updated %@", updatedString);
