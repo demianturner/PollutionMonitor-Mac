@@ -32,9 +32,9 @@
                                     repeats:YES];
     
     // udpate reading when Mac wakes
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
-                                                           selector: @selector(timerFired:)
-                                                               name: NSWorkspaceDidWakeNotification object: NULL];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
+                                                           selector:@selector(timerFired:)
+                                                               name:NSWorkspaceDidWakeNotification object:NULL];
     
     [self initializeStatusBarItem];
     
@@ -73,12 +73,13 @@
 - (void)timerFired:(NSTimer *)timer
 {
     NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
-    int cityCode = 1481; // Haerbin (main)
-//    int cityCode = 1282; // Taiping Hongwei Park, Haerbin, to right of bridge
+//    int cityCode = 1481; // Haerbin (main)
+    int cityCode = 1282; // Taiping Hongwei Park, Haerbin, to right of bridge
 //    int cityCode = 1437; // Shanghai
 //    int cityCode = 1451; // Beijing
     NSString *uuidString = [[NSUUID UUID] UUIDString];
     NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
+    // or use my dev key b6928d68172703fe9468ea70e38a330439c3e1a2
     NSString *dataUrl = [NSString stringWithFormat:@"%@:%d?%@", feedUrl, cityCode, sha1Hash];
     // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
     NSURL *url = [NSURL URLWithString:dataUrl];
