@@ -10,6 +10,7 @@
 #import "TestImage.h"
 #import "PopoverViewController.h"
 #import "NSString+Sha1.h"
+#import "Reachability.h"
 
 @interface AppDelegate()
 
@@ -21,17 +22,20 @@
 
 @implementation AppDelegate
 
+#pragma mark - Application Lifecycle
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // update hourly
-    float oneHourInSeconds = 60.0 * 5;
-    [NSTimer scheduledTimerWithTimeInterval:oneHourInSeconds
+    // update every 5 mins
+    float intervalInSeconds = 60.0 * 5;
+//    float intervalInSeconds = 10;
+    [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds
                                      target:self
                                    selector:@selector(timerFired:)
                                    userInfo:nil
                                     repeats:YES];
     
-    // udpate reading when Mac wakes
+    // update reading when Mac wakes
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
                                                            selector:@selector(timerFired:)
                                                                name:NSWorkspaceDidWakeNotification object:NULL];
@@ -55,6 +59,15 @@
     [self performSelector:@selector(timerFired:) withObject:nil];
 }
 
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+    
+    [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
+    self.statusItem = nil;
+}
+
+#pragma mark - Menu Bar
+
+
 - (NSMenu *)initializeStatusBarMenu:(NSArray *)menuItemsArray
 {
     NSMenu *menu = [[NSMenu alloc] init];
@@ -72,6 +85,11 @@
 
 - (void)timerFired:(NSTimer *)timer
 {
+    if (! [self hasNetworkConnection]) {
+        NSLog(@"no network");
+        return;
+    }
+    
     NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
 //    int cityCode = 1481; // Haerbin (main)
     int cityCode = 1282; // Taiping Hongwei Park, Haerbin, to right of bridge
@@ -79,21 +97,20 @@
 //    int cityCode = 1451; // Beijing
     NSString *uuidString = [[NSUUID UUID] UUIDString];
     NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
-    // or use my dev key b6928d68172703fe9468ea70e38a330439c3e1a2
     NSString *dataUrl = [NSString stringWithFormat:@"%@:%d?%@", feedUrl, cityCode, sha1Hash];
     // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
     NSURL *url = [NSURL URLWithString:dataUrl];
     
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
-                                          dataTaskWithURL:url
-                                          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                              NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                              NSString *measurement = jsonData[@"aqiv"];
-                                              NSString *updateTime = jsonData[@"utime"];
-                                              int reading = [measurement intValue];
-                                              [self updateStatusItemWith:reading updatedAt:updateTime];
-                                              NSLog(@"%@", jsonData);
-                                          }];
+      dataTaskWithURL:url
+      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+          NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+          NSString *measurement = jsonData[@"aqiv"];
+          NSString *updateTime = jsonData[@"utime"];
+          int reading = [measurement intValue];
+          [self updateStatusItemWith:reading updatedAt:updateTime];
+          NSLog(@"%@", jsonData);
+      }];
     [downloadTask resume];
 }
 
@@ -120,22 +137,28 @@
     NSLog(@"reading %d", reading);
 }
 
-- (void)initializeStatusBarItem {
+- (void)initializeStatusBarItem
+{
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.highlightMode = YES;
     NSStatusBarButton *button = self.statusItem.button;
     button.action = @selector(buttonClicked2:);
 }
 
+#pragma mark - Actions
+
 - (IBAction)buttonClicked2:(NSStatusBarButton *)sender
 {
     NSLog(@"bar"); // never called because menu implemented for statusItem
 }
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    
-    [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
-    self.statusItem = nil;
+#pragma mark - Helpers
+
+- (BOOL)hasNetworkConnection
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return !(networkStatus == NotReachable);
 }
 
 

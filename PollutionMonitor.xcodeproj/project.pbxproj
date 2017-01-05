@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E97284EBC38949453C2472F /* libPods-PollutionMonitor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C688CC94CE05DFC27AE55002 /* libPods-PollutionMonitor.a */; };
 		AD11550C1DFFF006003FCF4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11550B1DFFF006003FCF4D /* AppDelegate.m */; };
 		AD11550F1DFFF006003FCF4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11550E1DFFF006003FCF4D /* main.m */; };
 		AD1155111DFFF006003FCF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD1155101DFFF006003FCF4D /* Assets.xcassets */; };
 		AD1155141DFFF006003FCF4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1155121DFFF006003FCF4D /* MainMenu.xib */; };
 		AD11551F1DFFF006003FCF4D /* PollutionMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */; };
+		AD5F271E1E1E483F00142F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */; };
 		ADB5C1591E039EFD00380E7C /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADB5C1581E039EFD00380E7C /* set_build_number.sh */; };
 		ADDCE2171E01036800E596D1 /* TestImage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCE2161E01036800E596D1 /* TestImage.m */; };
 		ADFABBD91E0135EE00F978EB /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFABBD71E0135EE00F978EB /* PopoverViewController.m */; };
 		ADFABBDA1E0135EE00F978EB /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADFABBD81E0135EE00F978EB /* PopoverViewController.xib */; };
 		ADFABBFE1E0284DB00F978EB /* NSString+Sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */; };
+		C4EF651000E5BB0774B90A3A /* libPods-PollutionMonitorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F91734FB96DB860C77E9AE /* libPods-PollutionMonitorTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7112C9AE92983523165DE98F /* Pods-PollutionMonitorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionMonitorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionMonitorTests/Pods-PollutionMonitorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		718DE5069C405C96A5A7114A /* Pods-PollutionMonitorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionMonitorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionMonitorTests/Pods-PollutionMonitorTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD1155071DFFF006003FCF4D /* PollutionMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollutionMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD11550A1DFFF006003FCF4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD11550B1DFFF006003FCF4D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 		AD11551A1DFFF006003FCF4D /* PollutionMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollutionMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollutionMonitorTests.m; sourceTree = "<group>"; };
 		AD1155201DFFF006003FCF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ADB5C1581E039EFD00380E7C /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		ADDCE2151E01036800E596D1 /* TestImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestImage.h; sourceTree = "<group>"; };
 		ADDCE2161E01036800E596D1 /* TestImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestImage.m; sourceTree = "<group>"; };
@@ -49,6 +55,10 @@
 		ADFABBFC1E0284DB00F978EB /* NSString+Sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Sha1.h"; sourceTree = "<group>"; };
 		ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Sha1.m"; sourceTree = "<group>"; };
 		ADFABC001E02856400F978EB /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		B4110BD3B0C06DF45413C8F6 /* Pods-PollutionMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionMonitor/Pods-PollutionMonitor.release.xcconfig"; sourceTree = "<group>"; };
+		C688CC94CE05DFC27AE55002 /* libPods-PollutionMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PollutionMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD81C8109F020A0A82F27D1D /* Pods-PollutionMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionMonitor/Pods-PollutionMonitor.debug.xcconfig"; sourceTree = "<group>"; };
+		F9F91734FB96DB860C77E9AE /* libPods-PollutionMonitorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PollutionMonitorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5F271E1E1E483F00142F58 /* SystemConfiguration.framework in Frameworks */,
+				7E97284EBC38949453C2472F /* libPods-PollutionMonitor.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +75,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4EF651000E5BB0774B90A3A /* libPods-PollutionMonitorTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D6955D7F065CB2D2BD31C2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD81C8109F020A0A82F27D1D /* Pods-PollutionMonitor.debug.xcconfig */,
+				B4110BD3B0C06DF45413C8F6 /* Pods-PollutionMonitor.release.xcconfig */,
+				7112C9AE92983523165DE98F /* Pods-PollutionMonitorTests.debug.xcconfig */,
+				718DE5069C405C96A5A7114A /* Pods-PollutionMonitorTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AD1154FE1DFFF006003FCF4D = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +100,7 @@
 				AD11551D1DFFF006003FCF4D /* PollutionMonitorTests */,
 				AD1155081DFFF006003FCF4D /* Products */,
 				ADFABBFF1E02856400F978EB /* Frameworks */,
+				1D6955D7F065CB2D2BD31C2E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,7 +162,10 @@
 		ADFABBFF1E02856400F978EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */,
 				ADFABC001E02856400F978EB /* libcommonCrypto.tbd */,
+				C688CC94CE05DFC27AE55002 /* libPods-PollutionMonitor.a */,
+				F9F91734FB96DB860C77E9AE /* libPods-PollutionMonitorTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,10 +177,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD1155231DFFF006003FCF4D /* Build configuration list for PBXNativeTarget "PollutionMonitor" */;
 			buildPhases = (
+				D546BB0A875BB6877E7D949A /* [CP] Check Pods Manifest.lock */,
 				AD1155031DFFF006003FCF4D /* Sources */,
 				AD1155041DFFF006003FCF4D /* Frameworks */,
 				AD1155051DFFF006003FCF4D /* Resources */,
 				ADB5C1561E039E8600380E7C /* Set Build Number */,
+				B3668902C46378F7C3610AB4 /* [CP] Embed Pods Frameworks */,
+				5F191526E95E76757CF2AE60 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD1155261DFFF006003FCF4D /* Build configuration list for PBXNativeTarget "PollutionMonitorTests" */;
 			buildPhases = (
+				D83151783A83DC585FADF5E8 /* [CP] Check Pods Manifest.lock */,
 				AD1155161DFFF006003FCF4D /* Sources */,
 				AD1155171DFFF006003FCF4D /* Frameworks */,
 				AD1155181DFFF006003FCF4D /* Resources */,
+				ABEAA63AFFF96C045F0C3BDD /* [CP] Embed Pods Frameworks */,
+				1C4AE7856E0D16DF6B86AA53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,6 +278,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1C4AE7856E0D16DF6B86AA53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollutionMonitorTests/Pods-PollutionMonitorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F191526E95E76757CF2AE60 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollutionMonitor/Pods-PollutionMonitor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABEAA63AFFF96C045F0C3BDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollutionMonitorTests/Pods-PollutionMonitorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ADB5C1561E039E8600380E7C /* Set Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,6 +336,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = $SRCROOT/PollutionMonitor/Scripts/set_build_number.sh;
+		};
+		B3668902C46378F7C3610AB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollutionMonitor/Pods-PollutionMonitor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D546BB0A875BB6877E7D949A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D83151783A83DC585FADF5E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -392,6 +516,7 @@
 		};
 		AD1155241DFFF006003FCF4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD81C8109F020A0A82F27D1D /* Pods-PollutionMonitor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -409,6 +534,7 @@
 		};
 		AD1155251DFFF006003FCF4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4110BD3B0C06DF45413C8F6 /* Pods-PollutionMonitor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -426,6 +552,7 @@
 		};
 		AD1155271DFFF006003FCF4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7112C9AE92983523165DE98F /* Pods-PollutionMonitorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -440,6 +567,7 @@
 		};
 		AD1155281DFFF006003FCF4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 718DE5069C405C96A5A7114A /* Pods-PollutionMonitorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
