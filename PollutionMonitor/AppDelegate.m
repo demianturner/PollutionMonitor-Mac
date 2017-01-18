@@ -11,12 +11,16 @@
 #import "PopoverViewController.h"
 #import "NSString+Sha1.h"
 #import "Reachability.h"
+#import "PLMCityList.h"
+
+static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
 
 @interface AppDelegate()
 
 //@property (weak, nonatomic) IBOutlet NSWindow *window;
 //@property (strong, nonatomic) id popoverTransiencyMonitor;
 @property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -26,18 +30,19 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
     // update every 5 mins
     float intervalInSeconds = 60.0 * 5;
 //    float intervalInSeconds = 10;
-    [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds
                                      target:self
-                                   selector:@selector(timerFired:)
+                                   selector:@selector(timerFired:cityCode:)
                                    userInfo:nil
                                     repeats:YES];
     
     // update reading when Mac wakes
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                           selector:@selector(timerFired:)
+                                                           selector:@selector(timerFired:cityCode:)
                                                                name:NSWorkspaceDidWakeNotification object:NULL];
     
     [self initializeStatusBarItem];
@@ -54,9 +59,10 @@
     NSArray *menuItemsArray = @[one, two, three, four];
     
     self.statusItem.menu = [self initializeStatusBarMenu:menuItemsArray];
+    [self addCityItemsToStatusBarMenu:[PLMCityList cities]];
     
     // invoke first call, rest done by timer
-    [self performSelector:@selector(timerFired:) withObject:nil];
+    [self timerFired:self.timer cityCode:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -83,21 +89,76 @@
     return menu;
 }
 
-- (void)timerFired:(NSTimer *)timer
+- (void)addCityItemsToStatusBarMenu:(NSArray *)menuItemsArray
+{
+    NSMenuItem *cityItem = [[NSMenuItem alloc] initWithTitle:@"Choose City" action:nil keyEquivalent:@""];
+    
+    NSMenu *submenu = [[NSMenu alloc] init];
+    
+    for (NSDictionary *menuItems in menuItemsArray) {
+        [menuItems enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSNumber *cityCode, BOOL *stop) {
+            
+            NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:key action:@selector(citySelected:) keyEquivalent:@""];
+            [item setTarget:self];
+            [item setRepresentedObject:cityCode];
+            [submenu addItem:item];
+            
+        }];
+    }
+    
+    [cityItem setSubmenu:submenu];
+    [self.statusItem.menu insertItem:cityItem atIndex:2];
+}
+
+- (void)citySelected:(id)sender
+{
+    // tick selection
+    NSMenuItem *item = (NSMenuItem *)sender;
+    item.state = NSOnState;
+    
+    // extract city code
+    NSNumber *cityCode = (NSNumber *)[sender representedObject];
+    
+    // store city code value
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:cityCode forKey:kLastSelectedCityId];
+    [defaults synchronize];
+    
+    [self timerFired:self.timer cityCode:cityCode];
+}
+
+- (void)timerFired:(NSTimer *)timer cityCode:(NSNumber *)cityCode
 {
     if (! [self hasNetworkConnection]) {
         NSLog(@"no network");
         return;
     }
     
+    if (cityCode == 0 || cityCode == nil) {
+        // check last selected value in user defaults
+        NSNumber *savedCityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
+        if (savedCityCode) {
+            cityCode = savedCityCode;
+        } else
+        
+        // else default to Beijing
+        {
+            cityCode = @(1451);
+            // tick Beijing
+            NSMenuItem *chooseCity = [self.statusItem.menu itemWithTitle:@"Choose City"];
+            
+            if (chooseCity.hasSubmenu) {
+                NSArray *menuItems = chooseCity.submenu.itemArray;
+                NSMenuItem *beijing = [menuItems objectAtIndex:3];
+                beijing.state = NSOnState;
+            }
+        }
+    }
+    
     NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
-//    int cityCode = 1481; // Haerbin (main)
-    int cityCode = 1282; // Taiping Hongwei Park, Haerbin, to right of bridge
-//    int cityCode = 1437; // Shanghai
-//    int cityCode = 1451; // Beijing
     NSString *uuidString = [[NSUUID UUID] UUIDString];
     NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
-    NSString *dataUrl = [NSString stringWithFormat:@"%@:%d?%@", feedUrl, cityCode, sha1Hash];
+    NSString *dataUrl = [NSString stringWithFormat:@"%@:%@?%@", feedUrl, cityCode, sha1Hash];
     // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
     NSURL *url = [NSURL URLWithString:dataUrl];
     
@@ -108,13 +169,13 @@
           NSString *measurement = jsonData[@"aqiv"];
           NSString *updateTime = jsonData[@"utime"];
           int reading = [measurement intValue];
-          [self updateStatusItemWith:reading updatedAt:updateTime];
+          [self updateStatusItemWithReading:reading updatedAt:updateTime];
           NSLog(@"%@", jsonData);
       }];
     [downloadTask resume];
 }
 
-- (void)updateStatusItemWith:(int)reading updatedAt:(NSString *)updatedString
+- (void)updateStatusItemWithReading:(int)reading updatedAt:(NSString *)updatedString
 {
     NSImage *image = [TestImage imageOfMyImage:reading];
     [self.statusItem setImage:image];

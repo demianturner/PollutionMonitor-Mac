@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Haerbin</key>
+		<integer>1481</integer>
+	</dict>
+	<dict>
+		<key>Taiping Hongwei Park, Haerbin</key>
+		<integer>1282</integer>
+	</dict>
+	<dict>
+		<key>Shanghai</key>
+		<integer>1437</integer>
+	</dict>
+	<dict>
+		<key>Beijing</key>
+		<integer>1451</integer>
+	</dict>
+</array>
+</plist>
