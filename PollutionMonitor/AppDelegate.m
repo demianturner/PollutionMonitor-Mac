@@ -12,15 +12,13 @@
 #import "NSString+Sha1.h"
 #import "Reachability.h"
 #import "PLMCityList.h"
+#import "MyView.h"
 
 static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
 static int const kBeijingCityId = 1451;
 
-
-
 typedef enum
 {
-    kPLMMenuItemLastRequested,
     kPLMMenuItemLastUpdated,
     kPLMMenuItemChangeCity,
     kPLMMenuItemViewOnWeb,
@@ -33,10 +31,15 @@ typedef enum
 //@property (strong, nonatomic) id popoverTransiencyMonitor;
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) NSTimer *timer;
+@property (weak) IBOutlet MyView *menuItemView;
+@property (weak) IBOutlet NSTextField *lastRequestedLabel;
+@property (weak) IBOutlet NSTextField *lastUpdatedLabel;
 
 @end
 
 @implementation AppDelegate
+
+
 
 #pragma mark - Application Lifecycle
 
@@ -59,16 +62,14 @@ typedef enum
     
     [self initializeStatusBarItem];
     
-    NSString *lastRequestedTitle = @"Updating ...";
-    NSString *lastUpdatedTitle = @"Updating ...";
+    NSString *lastUpdatedItem = @"Updating ...";
     NSString *viewOnWebTitle = @"View on Website";
     NSString *quitTitle = @"Quit";
 				
-    NSDictionary *one = @{lastRequestedTitle : [NSValue valueWithPointer:nil]};
-    NSDictionary *two = @{lastUpdatedTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *two = @{lastUpdatedItem : [NSValue valueWithPointer:nil]};
     NSDictionary *three = @{viewOnWebTitle : [NSValue valueWithPointer:@selector(viewOnWebsiteSelected:)]};
     NSDictionary *four = @{quitTitle : [NSValue valueWithPointer:@selector(terminate:)]};
-    NSArray *menuItemsArray = @[one, two, three, four];
+    NSArray *menuItemsArray = @[two, three, four];
     
     self.statusItem.menu = [self initializeStatusBarMenu:menuItemsArray];
     [self addCityItemsToStatusBarMenu:[PLMCityList cities]];
@@ -114,7 +115,6 @@ typedef enum
             [item setTarget:self];
             [item setRepresentedObject:cityCode];
             [submenu addItem:item];
-            
         }];
     }
     
@@ -128,17 +128,21 @@ typedef enum
     [self.statusItem setImage:image];
     
     // local update time
-    NSMenuItem *menuItemLocal = [self.statusItem.menu itemAtIndex:0];
+    NSLocale *formatterLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setLocale:formatterLocale];
     NSString *stringDate = [dateFormatter stringFromDate:[NSDate date]];
-    NSString *lastUpdatedLocal = [@"Local Last Updated: " stringByAppendingString:stringDate];
-    [menuItemLocal setTitle:lastUpdatedLocal];
+    NSString *lastUpdatedLocal = [@"Last Requested: " stringByAppendingString:stringDate];
     
+    self.lastRequestedLabel.stringValue = lastUpdatedLocal;
+
     // server update time
-    NSMenuItem *menuItemServer = [self.statusItem.menu itemAtIndex:1];
-    NSString *lastUpdatedServer = [@"Server Last Updated: " stringByAppendingString:updatedString];
-    [menuItemServer setTitle:lastUpdatedServer];
+    NSMenuItem *lastUpdatedMenuItem = [self.statusItem.menu itemAtIndex:kPLMMenuItemLastUpdated];
+    NSString *lastUpdatedServer = [@"Last Updated: " stringByAppendingString:updatedString];
+    self.lastUpdatedLabel.stringValue = lastUpdatedServer;
+    [lastUpdatedMenuItem setEnabled:NO];    
+    [lastUpdatedMenuItem setView:self.menuItemView];
     
     NSLog(@"timer fired");
     NSLog(@"Server Last Updated %@", updatedString);
