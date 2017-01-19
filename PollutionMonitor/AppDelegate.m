@@ -14,6 +14,18 @@
 #import "PLMCityList.h"
 
 static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
+static int const kBeijingCityId = 1451;
+
+
+
+typedef enum
+{
+    kPLMMenuItemLastRequested,
+    kPLMMenuItemLastUpdated,
+    kPLMMenuItemChangeCity,
+    kPLMMenuItemViewOnWeb,
+    kPLMMenuItemQuit,
+} PLMMenuItem;
 
 @interface AppDelegate()
 
@@ -47,14 +59,14 @@ static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
     
     [self initializeStatusBarItem];
     
-    NSString *lastUpdatedLocalTitle = @"Updating ...";
-    NSString *lastUpdatedServerTitle = @"Updating ...";
-    NSString *prefTitle = @"Preferencees";
+    NSString *lastRequestedTitle = @"Updating ...";
+    NSString *lastUpdatedTitle = @"Updating ...";
+    NSString *viewOnWebTitle = @"View on Website";
     NSString *quitTitle = @"Quit";
 				
-    NSDictionary *one = @{lastUpdatedLocalTitle : [NSValue valueWithPointer:nil]};
-    NSDictionary *two = @{lastUpdatedServerTitle : [NSValue valueWithPointer:nil]};
-    NSDictionary *three = @{prefTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *one = @{lastRequestedTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *two = @{lastUpdatedTitle : [NSValue valueWithPointer:nil]};
+    NSDictionary *three = @{viewOnWebTitle : [NSValue valueWithPointer:@selector(viewOnWebsiteSelected:)]};
     NSDictionary *four = @{quitTitle : [NSValue valueWithPointer:@selector(terminate:)]};
     NSArray *menuItemsArray = @[one, two, three, four];
     
@@ -107,72 +119,7 @@ static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
     }
     
     [cityItem setSubmenu:submenu];
-    [self.statusItem.menu insertItem:cityItem atIndex:2];
-}
-
-- (void)citySelected:(id)sender
-{
-    // tick selection
-    NSMenuItem *item = (NSMenuItem *)sender;
-    item.state = NSOnState;
-    
-    // extract city code
-    NSNumber *cityCode = (NSNumber *)[sender representedObject];
-    
-    // store city code value
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:cityCode forKey:kLastSelectedCityId];
-    [defaults synchronize];
-    
-    [self timerFired:self.timer cityCode:cityCode];
-}
-
-- (void)timerFired:(NSTimer *)timer cityCode:(NSNumber *)cityCode
-{
-    if (! [self hasNetworkConnection]) {
-        NSLog(@"no network");
-        return;
-    }
-    
-    if (cityCode == 0 || cityCode == nil) {
-        // check last selected value in user defaults
-        NSNumber *savedCityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
-        if (savedCityCode) {
-            cityCode = savedCityCode;
-        } else
-        
-        // else default to Beijing
-        {
-            cityCode = @(1451);
-            // tick Beijing
-            NSMenuItem *chooseCity = [self.statusItem.menu itemWithTitle:@"Choose City"];
-            
-            if (chooseCity.hasSubmenu) {
-                NSArray *menuItems = chooseCity.submenu.itemArray;
-                NSMenuItem *beijing = [menuItems objectAtIndex:3];
-                beijing.state = NSOnState;
-            }
-        }
-    }
-    
-    NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
-    NSString *uuidString = [[NSUUID UUID] UUIDString];
-    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
-    NSString *dataUrl = [NSString stringWithFormat:@"%@:%@?%@", feedUrl, cityCode, sha1Hash];
-    // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
-    NSURL *url = [NSURL URLWithString:dataUrl];
-    
-    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
-      dataTaskWithURL:url
-      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-          NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-          NSString *measurement = jsonData[@"aqiv"];
-          NSString *updateTime = jsonData[@"utime"];
-          int reading = [measurement intValue];
-          [self updateStatusItemWithReading:reading updatedAt:updateTime];
-          NSLog(@"%@", jsonData);
-      }];
-    [downloadTask resume];
+    [self.statusItem.menu insertItem:cityItem atIndex:kPLMMenuItemChangeCity];
 }
 
 - (void)updateStatusItemWithReading:(int)reading updatedAt:(NSString *)updatedString
@@ -203,23 +150,109 @@ static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.highlightMode = YES;
     NSStatusBarButton *button = self.statusItem.button;
-    button.action = @selector(buttonClicked2:);
-}
-
-#pragma mark - Actions
-
-- (IBAction)buttonClicked2:(NSStatusBarButton *)sender
-{
-    NSLog(@"bar"); // never called because menu implemented for statusItem
+    button.action = @selector(buttonClicked:);
 }
 
 #pragma mark - Helpers
+
+- (void)clearSelectionsAtIndex:(NSUInteger)idx
+{
+    NSMenuItem *chooseCity = [self.statusItem.menu itemAtIndex:kPLMMenuItemChangeCity];
+    
+    if (chooseCity.hasSubmenu) {
+        for (NSMenuItem *menuItem in chooseCity.submenu.itemArray) {
+            menuItem.state = NSOffState;
+        }
+    }
+}
+
+#pragma mark - Network
+
+- (void)timerFired:(NSTimer *)timer cityCode:(NSNumber *)cityCode
+{
+    if (! [self hasNetworkConnection]) {
+        NSLog(@"no network");
+        return;
+    }
+    
+    if (cityCode == 0 || cityCode == nil) {
+        // check last selected value in user defaults
+        NSNumber *savedCityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
+        if (savedCityCode) {
+            cityCode = savedCityCode;
+        } else
+            
+            // else default to Beijing
+        {
+            cityCode = @(kBeijingCityId);
+            // tick Beijing
+            NSMenuItem *chooseCity = [self.statusItem.menu itemWithTitle:@"Choose City"];
+            
+            if (chooseCity.hasSubmenu) {
+                NSArray *menuItems = chooseCity.submenu.itemArray;
+                NSMenuItem *beijing = [menuItems objectAtIndex:3];
+                beijing.state = NSOnState;
+            }
+        }
+    }
+    
+    NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
+    NSString *uuidString = [[NSUUID UUID] UUIDString];
+    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
+    NSString *dataUrl = [NSString stringWithFormat:@"%@:%@?%@", feedUrl, cityCode, sha1Hash];
+    // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
+    NSURL *url = [NSURL URLWithString:dataUrl];
+    
+    NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
+                                          dataTaskWithURL:url
+                                          completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                              NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                              NSString *measurement = jsonData[@"aqiv"];
+                                              NSString *updateTime = jsonData[@"utime"];
+                                              int reading = [measurement intValue];
+                                              [self updateStatusItemWithReading:reading updatedAt:updateTime];
+                                              NSLog(@"%@", jsonData);
+                                          }];
+    [downloadTask resume];
+}
 
 - (BOOL)hasNetworkConnection
 {
     Reachability *reachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus networkStatus = [reachability currentReachabilityStatus];
     return !(networkStatus == NotReachable);
+}
+
+#pragma mark - Actions
+
+- (void)citySelected:(id)sender
+{
+    // untick previous selection
+    [self clearSelectionsAtIndex:kPLMMenuItemChangeCity];
+    
+    // tick selection
+    NSMenuItem *item = (NSMenuItem *)sender;
+    item.state = NSOnState;
+    
+    // extract city code
+    NSNumber *cityCode = (NSNumber *)[sender representedObject];
+    
+    // store city code value
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:cityCode forKey:kLastSelectedCityId];
+    [defaults synchronize];
+    
+    [self timerFired:self.timer cityCode:cityCode];
+}
+
+- (void)viewOnWebsiteSelected:(id)sender
+{
+    
+}
+
+- (IBAction)buttonClicked:(NSStatusBarButton *)sender
+{
+    NSLog(@"foo"); // never called because menu implemented for statusItem
 }
 
 
