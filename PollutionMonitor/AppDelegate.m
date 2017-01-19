@@ -170,6 +170,21 @@ typedef enum
     }
 }
 
+- (void)tickSelectedCity:(NSNumber *)cityCode
+{
+    NSMenuItem *chooseCity = [self.statusItem.menu itemAtIndex:kPLMMenuItemChangeCity];
+    
+    if (chooseCity.hasSubmenu) {
+        for (NSMenuItem *menuItem in chooseCity.submenu.itemArray) {
+            NSNumber *code = [menuItem representedObject];
+            if (code == cityCode) {
+                menuItem.state = NSOnState;
+            }
+        }
+    }
+    
+}
+
 #pragma mark - Network
 
 - (void)timerFired:(NSTimer *)timer cityCode:(NSNumber *)cityCode
@@ -179,7 +194,7 @@ typedef enum
         return;
     }
     
-    if (cityCode == 0 || cityCode == nil) {
+    if (cityCode == nil) {
         // check last selected value in user defaults
         NSNumber *savedCityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
         if (savedCityCode) {
@@ -189,16 +204,10 @@ typedef enum
             // else default to Beijing
         {
             cityCode = @(kBeijingCityId);
-            // tick Beijing
-            NSMenuItem *chooseCity = [self.statusItem.menu itemWithTitle:@"Choose City"];
-            
-            if (chooseCity.hasSubmenu) {
-                NSArray *menuItems = chooseCity.submenu.itemArray;
-                NSMenuItem *beijing = [menuItems objectAtIndex:3];
-                beijing.state = NSOnState;
-            }
         }
     }
+    
+    [self tickSelectedCity:cityCode];
     
     NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
     NSString *uuidString = [[NSUUID UUID] UUIDString];
