@@ -31,7 +31,6 @@ typedef enum
 //@property (weak, nonatomic) IBOutlet NSWindow *window;
 //@property (strong, nonatomic) id popoverTransiencyMonitor;
 @property (strong, nonatomic) NSStatusItem *statusItem;
-@property (strong, nonatomic) NSTimer *timer;
 @property (weak) IBOutlet MyView *menuItemView;
 @property (weak) IBOutlet NSTextField *lastRequestedLabel;
 @property (weak) IBOutlet NSTextField *lastUpdatedLabel;
@@ -50,15 +49,15 @@ typedef enum
     // update every 5 mins
     float intervalInSeconds = 60.0 * 5;
 //    float intervalInSeconds = 10;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds
+    [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds
                                      target:self
-                                   selector:@selector(timerFired:cityCode:)
+                                   selector:@selector(timerFired:)
                                    userInfo:nil
                                     repeats:YES];
     
     // update reading when Mac wakes
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                           selector:@selector(timerFired:cityCode:)
+                                                           selector:@selector(timerFired:)
                                                                name:NSWorkspaceDidWakeNotification object:NULL];
     
     [self initializeStatusBarItem];
@@ -78,7 +77,7 @@ typedef enum
     [self addCityItemsToStatusBarMenu:[PLMCityList cities]];
     
     // invoke first call, rest done by timer
-    [self timerFired:self.timer cityCode:nil];
+    [self performSelector:@selector(timerFired:) withObject:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -190,25 +189,20 @@ typedef enum
 
 #pragma mark - Network
 
-- (void)timerFired:(NSTimer *)timer cityCode:(NSNumber *)cityCode
+- (void)timerFired:(NSTimer *)timer
 {
     if (! [self hasNetworkConnection]) {
         NSLog(@"no network");
         return;
     }
-    
-    if (cityCode == nil) {
-        // check last selected value in user defaults
-        NSNumber *savedCityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
-        if (savedCityCode) {
-            cityCode = savedCityCode;
-        } else
-            
-            // else default to Beijing
-        {
-            cityCode = @(kBeijingCityId);
-        }
+
+    // check last selected value in user defaults
+    NSNumber *cityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
+    if (!cityCode) {
+
+        cityCode = @(kBeijingCityId);
     }
+
     
     [self tickSelectedCity:cityCode];
     
@@ -258,7 +252,7 @@ typedef enum
     [defaults setObject:cityCode forKey:kLastSelectedCityId];
     [defaults synchronize];
     
-    [self timerFired:self.timer cityCode:cityCode];
+    [self performSelector:@selector(timerFired:) withObject:nil];
 }
 
 - (void)viewOnWebsiteSelected:(id)sender

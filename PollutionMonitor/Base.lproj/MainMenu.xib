@@ -18,8 +18,6 @@
                 <outlet property="lastRequestedLabel" destination="apx-eY-sDr" id="Y0Z-JX-TV2"/>
                 <outlet property="lastUpdatedLabel" destination="ghX-sb-nvd" id="ctL-Et-Xi3"/>
                 <outlet property="menuItemView" destination="94u-QJ-656" id="Jur-EM-k2z"/>
-                <outlet property="myLabel" destination="4qb-Jo-eR2" id="NMq-lp-bsE"/>
-                <outlet property="myView" destination="94u-QJ-656" id="8Vl-PU-EOK"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
