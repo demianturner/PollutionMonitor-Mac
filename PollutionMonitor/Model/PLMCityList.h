@@ -12,5 +12,6 @@
 
 + (NSArray *)cities;
 + (NSDictionary *)cityAtIndex:(NSInteger)index;
++ (NSDictionary *)dictionary;
 
 @end

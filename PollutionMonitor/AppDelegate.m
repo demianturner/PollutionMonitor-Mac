@@ -260,7 +260,11 @@ typedef enum
 
 - (void)viewOnWebsiteSelected:(id)sender
 {
-    
+    NSNumber *savedCityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
+    NSDictionary *cities = [PLMCityList dictionary];
+    NSString *cityName = cities[savedCityCode];
+    NSString *aqicnUrlString = [NSString stringWithFormat:@"http://aqicn.org/search/#q=%@", cityName];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:aqicnUrlString]];
 }
 
 - (IBAction)buttonClicked:(NSStatusBarButton *)sender

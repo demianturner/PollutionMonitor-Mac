@@ -20,6 +20,22 @@
     return cities;
 }
 
++ (NSDictionary *)dictionary
+{
+    static NSDictionary *cities;
+    if (!cities) {
+        NSMutableDictionary *tmpCities = [[NSMutableDictionary alloc] init];
+        NSArray *citiesArray = [self cities];
+        for (NSDictionary *cityDict in citiesArray) {
+            [cityDict enumerateKeysAndObjectsUsingBlock:^(NSString *cityName, NSValue *cityCode, BOOL *stop) {
+                [tmpCities setObject:cityName forKey:cityCode];
+            }];
+        }
+        cities = [tmpCities copy];
+    }
+    return cities;
+}
+
 + (NSDictionary *)cityAtIndex:(NSInteger)index
 {
     NSArray *cities = [self cities];
