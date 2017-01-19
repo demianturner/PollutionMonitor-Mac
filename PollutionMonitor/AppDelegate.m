@@ -22,6 +22,7 @@ typedef enum
     kPLMMenuItemLastUpdated,
     kPLMMenuItemChangeCity,
     kPLMMenuItemViewOnWeb,
+    kPLMMenuItemAbout,
     kPLMMenuItemQuit,
 } PLMMenuItem;
 
@@ -64,12 +65,14 @@ typedef enum
     
     NSString *lastUpdatedItem = @"Updating ...";
     NSString *viewOnWebTitle = @"View on Website";
+    NSString *aboutTitle = @"About Pollution Monitor";
     NSString *quitTitle = @"Quit";
 				
-    NSDictionary *two = @{lastUpdatedItem : [NSValue valueWithPointer:nil]};
-    NSDictionary *three = @{viewOnWebTitle : [NSValue valueWithPointer:@selector(viewOnWebsiteSelected:)]};
+    NSDictionary *one = @{lastUpdatedItem : [NSValue valueWithPointer:nil]};
+    NSDictionary *two = @{viewOnWebTitle : [NSValue valueWithPointer:@selector(viewOnWebsiteSelected:)]};
+    NSDictionary *three = @{aboutTitle : [NSValue valueWithPointer:@selector(aboutSelected:)]};
     NSDictionary *four = @{quitTitle : [NSValue valueWithPointer:@selector(terminate:)]};
-    NSArray *menuItemsArray = @[two, three, four];
+    NSArray *menuItemsArray = @[one, two, three, four];
     
     self.statusItem.menu = [self initializeStatusBarMenu:menuItemsArray];
     [self addCityItemsToStatusBarMenu:[PLMCityList cities]];
@@ -264,6 +267,13 @@ typedef enum
     NSDictionary *cities = [PLMCityList dictionary];
     NSString *cityName = cities[savedCityCode];
     NSString *aqicnUrlString = [NSString stringWithFormat:@"http://aqicn.org/search/#q=%@", cityName];
+//    aqicnUrlString = [aqicnUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:aqicnUrlString]];
+}
+
+- (void)aboutSelected:(id)sender
+{
+    NSString *aqicnUrlString = @"http://bunchoftext.com/apps/pollution-monitor";
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:aqicnUrlString]];
 }
 
