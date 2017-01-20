@@ -34,6 +34,8 @@ typedef enum
 @property (weak) IBOutlet MyView *menuItemView;
 @property (weak) IBOutlet NSTextField *lastRequestedLabel;
 @property (weak) IBOutlet NSTextField *lastUpdatedLabel;
+@property (weak) IBOutlet NSTextField *currentCityLabel;
+@property (strong, nonatomic) NSNumber *currentCityId;
 
 @end
 
@@ -136,13 +138,17 @@ typedef enum
     [dateFormatter setLocale:formatterLocale];
     NSString *stringDate = [dateFormatter stringFromDate:[NSDate date]];
     NSString *lastUpdatedLocal = [@"Last Requested: " stringByAppendingString:stringDate];
-    
     self.lastRequestedLabel.stringValue = lastUpdatedLocal;
 
     // server update time
-    NSMenuItem *lastUpdatedMenuItem = [self.statusItem.menu itemAtIndex:kPLMMenuItemLastUpdated];
     NSString *lastUpdatedServer = [@"Last Updated: " stringByAppendingString:updatedString];
     self.lastUpdatedLabel.stringValue = lastUpdatedServer;
+    
+    // set current city
+    self.currentCityLabel.stringValue = [PLMCityList dictionary][self.currentCityId];
+    
+    // update menu
+    NSMenuItem *lastUpdatedMenuItem = [self.statusItem.menu itemAtIndex:kPLMMenuItemLastUpdated];
     [lastUpdatedMenuItem setEnabled:NO];    
     [lastUpdatedMenuItem setView:self.menuItemView];
     
@@ -199,11 +205,10 @@ typedef enum
     // check last selected value in user defaults
     NSNumber *cityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
     if (!cityCode) {
-
         cityCode = @(kBeijingCityId);
     }
 
-    
+    self.currentCityId = cityCode;
     [self tickSelectedCity:cityCode];
     
     NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";

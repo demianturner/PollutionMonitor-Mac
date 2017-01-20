@@ -15,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="currentCityLabel" destination="jJf-tT-RHI" id="h7d-z7-dec"/>
                 <outlet property="lastRequestedLabel" destination="apx-eY-sDr" id="Y0Z-JX-TV2"/>
                 <outlet property="lastUpdatedLabel" destination="ghX-sb-nvd" id="ctL-Et-Xi3"/>
                 <outlet property="menuItemView" destination="94u-QJ-656" id="Jur-EM-k2z"/>
@@ -22,11 +23,11 @@
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customView id="94u-QJ-656" customClass="MyView">
-            <rect key="frame" x="0.0" y="0.0" width="285" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="285" height="77"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apx-eY-sDr" userLabel="lastRequestedLabel">
-                    <rect key="frame" x="18" y="29" width="249" height="17"/>
+                    <rect key="frame" x="18" y="56" width="249" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="lastRequestedLabel" id="4qb-Jo-eR2">
                         <font key="font" metaFont="fixedUser" size="11"/>
@@ -35,7 +36,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghX-sb-nvd" userLabel="lastUpdatedLabel">
-                    <rect key="frame" x="18" y="10" width="249" height="17"/>
+                    <rect key="frame" x="18" y="37" width="249" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="lastUpdatedLabel" id="lIV-6g-pth" userLabel="lastUpdatedLabel">
                         <font key="font" metaFont="fixedUser" size="11"/>
@@ -43,8 +44,21 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJf-tT-RHI">
+                    <rect key="frame" x="18" y="5" width="249" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="current city" id="GxB-K6-dPU">
+                        <font key="font" metaFont="menuBar"/>
+                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="tUh-Q2-Juk">
+                    <rect key="frame" x="20" y="26" width="245" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </box>
             </subviews>
-            <point key="canvasLocation" x="72.5" y="113"/>
+            <point key="canvasLocation" x="72.5" y="126.5"/>
         </customView>
     </objects>
 </document>
