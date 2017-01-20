@@ -10,19 +10,5 @@
 
 @implementation MyView
 
-//- (id)initWithFrame:(NSRect)frame
-//{
-//    NSString *nibName = NSStringFromClass([self class]);
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        if ([[NSBundle mainBundle] loadNibNamed:nibName
-//                                          owner:self
-//                                topLevelObjects:nil]) {
-//            [self.myView setFrame:[self bounds]];
-//            [self addSubview:self.myView];
-//        }
-//    }
-//    return self;
-//}
 
 @end

@@ -65,7 +65,7 @@ typedef enum
     [self initializeStatusBarItem];
     
     NSString *lastUpdatedItem = @"Updating ...";
-    NSString *viewOnWebTitle = @"View on Website";
+    NSString *viewOnWebTitle = @"Full Report at aqicn.org";
     NSString *aboutTitle = @"About Pollution Monitor";
     NSString *quitTitle = @"Quit";
 				
@@ -262,11 +262,7 @@ typedef enum
 
 - (void)viewOnWebsiteSelected:(id)sender
 {
-    NSNumber *savedCityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
-    NSDictionary *cities = [PLMCityList dictionary];
-    NSString *cityName = cities[savedCityCode];
-    NSString *aqicnUrlString = [NSString stringWithFormat:@"http://aqicn.org/search/#q=%@", cityName];
-//    aqicnUrlString = [aqicnUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *aqicnUrlString = [NSString stringWithFormat:@"http://aqicn.org/city/@%@", self.currentCityId];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:aqicnUrlString]];
 }
 
