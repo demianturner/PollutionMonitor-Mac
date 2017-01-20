@@ -12,7 +12,7 @@
 	</dict>
 	<dict>
 		<key>Guangzhou</key>
-		<integer>5446</integer>
+		<integer>1449</integer>
 	</dict>
 	<dict>
 		<key>Shenzhen</key>
@@ -20,7 +20,7 @@
 	</dict>
 	<dict>
 		<key>Tianjin</key>
-		<integer>1452</integer>
+		<real>1452</real>
 	</dict>
 	<dict>
 		<key>Hong Kong</key>
