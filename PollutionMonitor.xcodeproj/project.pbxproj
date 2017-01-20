@@ -13,7 +13,6 @@
 		AD1155111DFFF006003FCF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD1155101DFFF006003FCF4D /* Assets.xcassets */; };
 		AD1155141DFFF006003FCF4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1155121DFFF006003FCF4D /* MainMenu.xib */; };
 		AD11551F1DFFF006003FCF4D /* PollutionMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */; };
-		AD5DF7C61E3097F300545DA5 /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5DF7C51E3097F300545DA5 /* MyView.m */; };
 		AD5F271E1E1E483F00142F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */; };
 		AD7F6D041E2F5C0300A2A1A4 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD7F6D031E2F5C0300A2A1A4 /* cities.plist */; };
 		AD7F6D091E2F5E1A00A2A1A4 /* PLMCityList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7F6D081E2F5E1A00A2A1A4 /* PLMCityList.m */; };
@@ -48,8 +47,6 @@
 		AD11551A1DFFF006003FCF4D /* PollutionMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollutionMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollutionMonitorTests.m; sourceTree = "<group>"; };
 		AD1155201DFFF006003FCF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD5DF7C41E3097F300545DA5 /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
-		AD5DF7C51E3097F300545DA5 /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
 		AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AD7F6D031E2F5C0300A2A1A4 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		AD7F6D071E2F5E1A00A2A1A4 /* PLMCityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLMCityList.h; sourceTree = "<group>"; };
@@ -125,14 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				AD7F6D061E2F5E1A00A2A1A4 /* Model */,
+				ADFAD1B21E31B12500BD0DD8 /* Categories */,
 				AD7F6D051E2F5C0C00A2A1A4 /* Resources */,
 				ADB5C1571E039EFD00380E7C /* Scripts */,
 				AD11550A1DFFF006003FCF4D /* AppDelegate.h */,
 				AD11550B1DFFF006003FCF4D /* AppDelegate.m */,
-				ADFABBFC1E0284DB00F978EB /* NSString+Sha1.h */,
-				ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */,
-				AD5DF7C41E3097F300545DA5 /* MyView.h */,
-				AD5DF7C51E3097F300545DA5 /* MyView.m */,
 				ADFABBD61E0135EE00F978EB /* PopoverViewController.h */,
 				ADFABBD71E0135EE00F978EB /* PopoverViewController.m */,
 				ADFABBD81E0135EE00F978EB /* PopoverViewController.xib */,
@@ -197,6 +191,15 @@
 				F9F91734FB96DB860C77E9AE /* libPods-PollutionMonitorTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADFAD1B21E31B12500BD0DD8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ADFABBFC1E0284DB00F978EB /* NSString+Sha1.h */,
+				ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,7 +428,6 @@
 				ADFABBFE1E0284DB00F978EB /* NSString+Sha1.m in Sources */,
 				AD11550C1DFFF006003FCF4D /* AppDelegate.m in Sources */,
 				AD7F6D091E2F5E1A00A2A1A4 /* PLMCityList.m in Sources */,
-				AD5DF7C61E3097F300545DA5 /* MyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

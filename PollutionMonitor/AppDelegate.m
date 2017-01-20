@@ -12,7 +12,6 @@
 #import "NSString+Sha1.h"
 #import "Reachability.h"
 #import "PLMCityList.h"
-#import "MyView.h"
 
 static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
 static int const kBeijingCityId = 1451;
@@ -31,7 +30,7 @@ typedef enum
 //@property (weak, nonatomic) IBOutlet NSWindow *window;
 //@property (strong, nonatomic) id popoverTransiencyMonitor;
 @property (strong, nonatomic) NSStatusItem *statusItem;
-@property (weak) IBOutlet MyView *menuItemView;
+@property (weak) IBOutlet NSView *menuItemView;
 @property (weak) IBOutlet NSTextField *lastRequestedLabel;
 @property (weak) IBOutlet NSTextField *lastUpdatedLabel;
 @property (weak) IBOutlet NSTextField *currentCityLabel;
@@ -40,8 +39,6 @@ typedef enum
 @end
 
 @implementation AppDelegate
-
-
 
 #pragma mark - Application Lifecycle
 

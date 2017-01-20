@@ -22,7 +22,7 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <customView id="94u-QJ-656" customClass="MyView">
+        <customView id="94u-QJ-656">
             <rect key="frame" x="0.0" y="0.0" width="285" height="77"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
