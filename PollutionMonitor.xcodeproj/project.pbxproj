@@ -555,6 +555,7 @@
 			baseConfigurationReference = DD81C8109F020A0A82F27D1D /* Pods-PollutionMonitor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8A3XPM2KYU;
 				INFOPLIST_FILE = PollutionMonitor/Info.plist;
@@ -563,7 +564,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.pollutionmonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -573,6 +574,7 @@
 			baseConfigurationReference = B4110BD3B0C06DF45413C8F6 /* Pods-PollutionMonitor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8A3XPM2KYU;
 				INFOPLIST_FILE = PollutionMonitor/Info.plist;
@@ -581,7 +583,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.PollutionMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seagullsystems.pollutionmonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

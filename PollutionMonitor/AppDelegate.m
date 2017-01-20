@@ -14,6 +14,8 @@
 #import "PLMCityList.h"
 
 static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
+static NSString* const kAPIkey = @"b6928d68172703fe9468ea70e38a330439c3e1a2";
+
 static int const kBeijingCityId = 1451;
 
 typedef enum
@@ -209,9 +211,10 @@ typedef enum
     [self tickSelectedCity:cityCode];
     
     NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
-    NSString *uuidString = [[NSUUID UUID] UUIDString];
-    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
-    NSString *dataUrl = [NSString stringWithFormat:@"%@:%@?%@", feedUrl, cityCode, sha1Hash];
+//    NSString *uuidString = [[NSUUID UUID] UUIDString];
+//    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
+    
+    NSString *dataUrl = [NSString stringWithFormat:@"%@:%@?%@", feedUrl, cityCode, kAPIkey];
     // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
     NSURL *url = [NSURL URLWithString:dataUrl];
     
