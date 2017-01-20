@@ -60,6 +60,7 @@
 		ADFABBFC1E0284DB00F978EB /* NSString+Sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Sha1.h"; sourceTree = "<group>"; };
 		ADFABBFD1E0284DB00F978EB /* NSString+Sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Sha1.m"; sourceTree = "<group>"; };
 		ADFABC001E02856400F978EB /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		ADFAD1B31E320C5100BD0DD8 /* PollutionMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PollutionMonitor.entitlements; sourceTree = "<group>"; };
 		B4110BD3B0C06DF45413C8F6 /* Pods-PollutionMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionMonitor/Pods-PollutionMonitor.release.xcconfig"; sourceTree = "<group>"; };
 		C688CC94CE05DFC27AE55002 /* libPods-PollutionMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PollutionMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD81C8109F020A0A82F27D1D /* Pods-PollutionMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionMonitor/Pods-PollutionMonitor.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		AD1155091DFFF006003FCF4D /* PollutionMonitor */ = {
 			isa = PBXGroup;
 			children = (
+				ADFAD1B31E320C5100BD0DD8 /* PollutionMonitor.entitlements */,
 				AD7F6D061E2F5E1A00A2A1A4 /* Model */,
 				ADFAD1B21E31B12500BD0DD8 /* Categories */,
 				AD7F6D051E2F5C0C00A2A1A4 /* Resources */,
@@ -260,6 +262,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8A3XPM2KYU;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					AD1155191DFFF006003FCF4D = {
 						CreatedOnToolsVersion = 8.1;
@@ -555,6 +562,7 @@
 			baseConfigurationReference = DD81C8109F020A0A82F27D1D /* Pods-PollutionMonitor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PollutionMonitor/PollutionMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8A3XPM2KYU;
@@ -574,6 +582,7 @@
 			baseConfigurationReference = B4110BD3B0C06DF45413C8F6 /* Pods-PollutionMonitor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PollutionMonitor/PollutionMonitor.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8A3XPM2KYU;
