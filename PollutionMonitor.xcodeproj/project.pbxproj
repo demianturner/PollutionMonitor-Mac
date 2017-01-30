@@ -14,10 +14,10 @@
 		AD1155141DFFF006003FCF4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1155121DFFF006003FCF4D /* MainMenu.xib */; };
 		AD11551F1DFFF006003FCF4D /* PollutionMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */; };
 		AD5F271E1E1E483F00142F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */; };
-		AD7F6D041E2F5C0300A2A1A4 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD7F6D031E2F5C0300A2A1A4 /* cities.plist */; };
 		AD7F6D091E2F5E1A00A2A1A4 /* PLMCityList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7F6D081E2F5E1A00A2A1A4 /* PLMCityList.m */; };
 		AD88DD791E3F1CEC00CBF6AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD88DD7B1E3F1CEC00CBF6AB /* Localizable.strings */; };
 		AD88DD7F1E3F1FA200CBF6AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD88DD811E3F1FA200CBF6AB /* InfoPlist.strings */; };
+		AD88DD821E3F218900CBF6AB /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD88DD841E3F218900CBF6AB /* cities.plist */; };
 		ADB5C1591E039EFD00380E7C /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADB5C1581E039EFD00380E7C /* set_build_number.sh */; };
 		ADDCE2171E01036800E596D1 /* TestImage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCE2161E01036800E596D1 /* TestImage.m */; };
 		ADFABBD91E0135EE00F978EB /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFABBD71E0135EE00F978EB /* PopoverViewController.m */; };
@@ -50,13 +50,14 @@
 		AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollutionMonitorTests.m; sourceTree = "<group>"; };
 		AD1155201DFFF006003FCF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		AD7F6D031E2F5C0300A2A1A4 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
 		AD7F6D071E2F5E1A00A2A1A4 /* PLMCityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLMCityList.h; sourceTree = "<group>"; };
 		AD7F6D081E2F5E1A00A2A1A4 /* PLMCityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLMCityList.m; sourceTree = "<group>"; };
 		AD88DD781E3F1CDD00CBF6AB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		AD88DD7A1E3F1CEC00CBF6AB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AD88DD7C1E3F1D1800CBF6AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD88DD801E3F1FA200CBF6AB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		AD88DD831E3F218900CBF6AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/cities.plist; sourceTree = "<group>"; };
+		AD88DD851E3F218C00CBF6AB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/cities.plist"; sourceTree = "<group>"; };
 		ADB5C1581E039EFD00380E7C /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		ADDCE2151E01036800E596D1 /* TestImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestImage.h; sourceTree = "<group>"; };
 		ADDCE2161E01036800E596D1 /* TestImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestImage.m; sourceTree = "<group>"; };
@@ -170,7 +171,7 @@
 			children = (
 				ADDCE2151E01036800E596D1 /* TestImage.h */,
 				ADDCE2161E01036800E596D1 /* TestImage.m */,
-				AD7F6D031E2F5C0300A2A1A4 /* cities.plist */,
+				AD88DD841E3F218900CBF6AB /* cities.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -291,6 +292,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = AD1154FE1DFFF006003FCF4D;
 			productRefGroup = AD1155081DFFF006003FCF4D /* Products */;
@@ -313,7 +315,7 @@
 				AD88DD791E3F1CEC00CBF6AB /* Localizable.strings in Resources */,
 				AD1155141DFFF006003FCF4D /* MainMenu.xib in Resources */,
 				ADFABBDA1E0135EE00F978EB /* PopoverViewController.xib in Resources */,
-				AD7F6D041E2F5C0300A2A1A4 /* cities.plist in Resources */,
+				AD88DD821E3F218900CBF6AB /* cities.plist in Resources */,
 				ADB5C1591E039EFD00380E7C /* set_build_number.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +494,15 @@
 				AD88DD801E3F1FA200CBF6AB /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AD88DD841E3F218900CBF6AB /* cities.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD88DD831E3F218900CBF6AB /* en */,
+				AD88DD851E3F218C00CBF6AB /* zh-Hans */,
+			);
+			name = cities.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
