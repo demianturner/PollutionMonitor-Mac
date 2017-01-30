@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  PollutionMonitor
+
+  Created by Demian Turner on 30/01/2017.
+  Copyright © 2017 Seagull Systems. All rights reserved.
+*/
+
+"Updating ..." = "更新 ...";
+"Full Report at aqicn.org" = "整体报告 aqicn.org";
+"About Pollution Monitor" = "关于环境污染检测";
+"Quit" = "退出";
+"Choose City" = "选择城市";
+"Last Requested: " = "最后查询: ";
+"Last Updated: " = "最新更新: ";

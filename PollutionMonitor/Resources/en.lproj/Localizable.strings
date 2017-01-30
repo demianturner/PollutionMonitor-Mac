@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  PollutionMonitor
+
+  Created by Demian Turner on 30/01/2017.
+  Copyright © 2017 Seagull Systems. All rights reserved.
+*/
+
+"Updating ..." = "Updating ...";
+"Full Report at aqicn.org" = "Full Report at aqicn.org";
+"About Pollution Monitor" = "About Pollution Monitor";
+"Quit" = "Quit";
+"Choose City" = "Choose City";
+"Last Requested: " = "Last Requested: ";
+"Last Updated: " = "Last Updated: ";

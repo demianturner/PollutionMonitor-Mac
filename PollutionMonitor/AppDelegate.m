@@ -49,7 +49,7 @@ typedef enum
     
     // update every 5 mins
     float intervalInSeconds = 60.0 * 5;
-//    float intervalInSeconds = 10;
+    //    float intervalInSeconds = 10;
     [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds
                                      target:self
                                    selector:@selector(timerFired:)
@@ -59,14 +59,13 @@ typedef enum
     // update reading when Mac wakes
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
                                                            selector:@selector(timerFired:)
-                                                               name:NSWorkspaceDidWakeNotification object:NULL];
-    
+                                                               name:NSWorkspaceDidWakeNotification object:NULL];    
     [self initializeStatusBarItem];
     
-    NSString *lastUpdatedItem = @"Updating ...";
-    NSString *viewOnWebTitle = @"Full Report at aqicn.org";
-    NSString *aboutTitle = @"About Pollution Monitor";
-    NSString *quitTitle = @"Quit";
+    NSString *lastUpdatedItem = NSLocalizedString(@"Updating ...", nil);
+    NSString *viewOnWebTitle = NSLocalizedString(@"Full Report at aqicn.org", nil);
+    NSString *aboutTitle = NSLocalizedString(@"About Pollution Monitor", nil);
+    NSString *quitTitle = NSLocalizedString(@"Quit", nil);
 				
     NSDictionary *one = @{lastUpdatedItem : [NSValue valueWithPointer:nil]};
     NSDictionary *two = @{viewOnWebTitle : [NSValue valueWithPointer:@selector(viewOnWebsiteSelected:)]};
@@ -107,7 +106,7 @@ typedef enum
 
 - (void)addCityItemsToStatusBarMenu:(NSArray *)menuItemsArray
 {
-    NSMenuItem *cityItem = [[NSMenuItem alloc] initWithTitle:@"Choose City" action:nil keyEquivalent:@""];
+    NSMenuItem *cityItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Choose City", nil) action:nil keyEquivalent:@""];
     
     NSMenu *submenu = [[NSMenu alloc] init];
     
@@ -136,11 +135,11 @@ typedef enum
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [dateFormatter setLocale:formatterLocale];
     NSString *stringDate = [dateFormatter stringFromDate:[NSDate date]];
-    NSString *lastUpdatedLocal = [@"Last Requested: " stringByAppendingString:stringDate];
+    NSString *lastUpdatedLocal = [NSLocalizedString(@"Last Requested: ", nil) stringByAppendingString:stringDate];
     self.lastRequestedLabel.stringValue = lastUpdatedLocal;
-
+    
     // server update time
-    NSString *lastUpdatedServer = [@"Last Updated: " stringByAppendingString:updatedString];
+    NSString *lastUpdatedServer = [NSLocalizedString(@"Last Updated: ", nil) stringByAppendingString:updatedString];
     self.lastUpdatedLabel.stringValue = lastUpdatedServer;
     
     // set current city
@@ -148,7 +147,7 @@ typedef enum
     
     // update menu
     NSMenuItem *lastUpdatedMenuItem = [self.statusItem.menu itemAtIndex:kPLMMenuItemLastUpdated];
-    [lastUpdatedMenuItem setEnabled:NO];    
+    [lastUpdatedMenuItem setEnabled:NO];
     [lastUpdatedMenuItem setView:self.menuItemView];
     
     NSLog(@"timer fired");
@@ -200,19 +199,19 @@ typedef enum
         NSLog(@"no network");
         return;
     }
-
+    
     // check last selected value in user defaults
     NSNumber *cityCode = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSelectedCityId];
     if (!cityCode) {
         cityCode = @(kBeijingCityId);
     }
-
+    
     self.currentCityId = cityCode;
     [self tickSelectedCity:cityCode];
     
     NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
-//    NSString *uuidString = [[NSUUID UUID] UUIDString];
-//    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
+    //    NSString *uuidString = [[NSUUID UUID] UUIDString];
+    //    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
     
     NSString *dataUrl = [NSString stringWithFormat:@"%@:%@?%@", feedUrl, cityCode, kAPIkey];
     // format https://feed.aqicn.org/xservices/refresh:1284?b6928d68172703fe9468ea70e38a330439c3e1a2
