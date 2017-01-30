@@ -17,6 +17,7 @@
 		AD7F6D041E2F5C0300A2A1A4 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD7F6D031E2F5C0300A2A1A4 /* cities.plist */; };
 		AD7F6D091E2F5E1A00A2A1A4 /* PLMCityList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7F6D081E2F5E1A00A2A1A4 /* PLMCityList.m */; };
 		AD88DD791E3F1CEC00CBF6AB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD88DD7B1E3F1CEC00CBF6AB /* Localizable.strings */; };
+		AD88DD7F1E3F1FA200CBF6AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD88DD811E3F1FA200CBF6AB /* InfoPlist.strings */; };
 		ADB5C1591E039EFD00380E7C /* set_build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADB5C1581E039EFD00380E7C /* set_build_number.sh */; };
 		ADDCE2171E01036800E596D1 /* TestImage.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCE2161E01036800E596D1 /* TestImage.m */; };
 		ADFABBD91E0135EE00F978EB /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFABBD71E0135EE00F978EB /* PopoverViewController.m */; };
@@ -55,6 +56,7 @@
 		AD88DD781E3F1CDD00CBF6AB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		AD88DD7A1E3F1CEC00CBF6AB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AD88DD7C1E3F1D1800CBF6AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD88DD801E3F1FA200CBF6AB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		ADB5C1581E039EFD00380E7C /* set_build_number.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		ADDCE2151E01036800E596D1 /* TestImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestImage.h; sourceTree = "<group>"; };
 		ADDCE2161E01036800E596D1 /* TestImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestImage.m; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				AD1155121DFFF006003FCF4D /* MainMenu.xib */,
 				AD11550D1DFFF006003FCF4D /* Supporting Files */,
 				AD88DD7B1E3F1CEC00CBF6AB /* Localizable.strings */,
+				AD88DD811E3F1FA200CBF6AB /* InfoPlist.strings */,
 			);
 			path = PollutionMonitor;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD1155111DFFF006003FCF4D /* Assets.xcassets in Resources */,
+				AD88DD7F1E3F1FA200CBF6AB /* InfoPlist.strings in Resources */,
 				AD88DD791E3F1CEC00CBF6AB /* Localizable.strings in Resources */,
 				AD1155141DFFF006003FCF4D /* MainMenu.xib in Resources */,
 				ADFABBDA1E0135EE00F978EB /* PopoverViewController.xib in Resources */,
@@ -480,6 +484,14 @@
 			);
 			name = Localizable.strings;
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD88DD811E3F1FA200CBF6AB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD88DD801E3F1FA200CBF6AB /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  PollutionMonitor
+
+  Created by Demian Turner on 30/01/2017.
+  Copyright © 2017 Seagull Systems. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "环境污染检测器";
