@@ -1,7 +1,7 @@
 # PollutionMonitor-Mac
 Status bar app for macOS using [aqicn][1] data to display pollution AQI readings.
 
-This is the source for the PollutionMonitor app: [https://itunes.apple.com/app/concurrency/id738872892][2] - enjoy!
+This is the source for the PollutionMonitor app: [https://itunes.apple.com/gb/app/pollution-monitor/id1197195842?mt=12][2] - enjoy!
 
 Just so we're clear, I'm releasing this so you can study it and learn how to make apps (or how not to make them, depending on what you think of my code).
 
