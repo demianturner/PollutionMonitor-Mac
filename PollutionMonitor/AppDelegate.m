@@ -12,9 +12,9 @@
 #import "NSString+Sha1.h"
 #import "Reachability.h"
 #import "PLMCityList.h"
+#import "Api-key.h"
 
 static NSString* const kLastSelectedCityId = @"LastSelectedCityId";
-static NSString* const kAPIkey = @"b6928d68172703fe9468ea70e38a330439c3e1a2";
 
 static int const kBeijingCityId = 1451;
 
@@ -220,12 +220,14 @@ typedef enum
     NSURLSessionDataTask *downloadTask = [[NSURLSession sharedSession]
                                           dataTaskWithURL:url
                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                              NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                              NSString *measurement = jsonData[@"aqiv"];
-                                              NSString *updateTime = jsonData[@"utime"];
-                                              int reading = [measurement intValue];
-                                              [self updateStatusItemWithReading:reading updatedAt:updateTime];
-                                              NSLog(@"%@", jsonData);
+                                              if (data) {
+                                                  NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                                  NSString *measurement = jsonData[@"aqiv"];
+                                                  NSString *updateTime = jsonData[@"utime"];
+                                                  int reading = [measurement intValue];
+                                                  [self updateStatusItemWithReading:reading updatedAt:updateTime];
+                                                  NSLog(@"%@", jsonData);
+                                              }
                                           }];
     [downloadTask resume];
 }

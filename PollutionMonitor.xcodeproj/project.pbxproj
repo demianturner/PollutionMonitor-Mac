@@ -49,6 +49,7 @@
 		AD11551A1DFFF006003FCF4D /* PollutionMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollutionMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD11551E1DFFF006003FCF4D /* PollutionMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PollutionMonitorTests.m; sourceTree = "<group>"; };
 		AD1155201DFFF006003FCF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD464B041E448A0E00E17DDF /* Api-key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Api-key.h"; path = "Resources/Api-key.h"; sourceTree = "<group>"; };
 		AD5F271D1E1E483F00142F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AD7F6D071E2F5E1A00A2A1A4 /* PLMCityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLMCityList.h; sourceTree = "<group>"; };
 		AD7F6D081E2F5E1A00A2A1A4 /* PLMCityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLMCityList.m; sourceTree = "<group>"; };
@@ -172,6 +173,7 @@
 				ADDCE2151E01036800E596D1 /* TestImage.h */,
 				ADDCE2161E01036800E596D1 /* TestImage.m */,
 				AD88DD841E3F218900CBF6AB /* cities.plist */,
+				AD464B041E448A0E00E17DDF /* Api-key.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
