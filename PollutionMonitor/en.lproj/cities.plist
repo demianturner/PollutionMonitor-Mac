@@ -46,5 +46,17 @@
 		<key>Taiping Hongwei Park, Haerbin</key>
 		<integer>1282</integer>
 	</dict>
+	<dict>
+		<key>London, UK</key>
+		<integer>5724</integer>
+	</dict>
+	<dict>
+		<key>Mumbai, India</key>
+		<integer>7020</integer>
+	</dict>
+	<dict>
+		<key>New Delhi, India</key>
+		<integer>7024</integer>
+	</dict>
 </array>
 </plist>

@@ -20,7 +20,7 @@
         </dict>
         <dict>
             <key>天津</key>
-            <real>1452</real>
+            <integer>1452</integer>
         </dict>
         <dict>
             <key>香港</key>
@@ -40,11 +40,23 @@
         </dict>
         <dict>
             <key>哈尔滨</key>
-            <real>1481</real>
+            <integer>1481</integer>
         </dict>
         <dict>
             <key>哈尔滨太平宏伟公园</key>
-            <real>1282</real>
+            <integer>1282</integer>
+        </dict>
+        <dict>
+            <key>London, UK</key>
+            <integer>5724</integer>
+        </dict>
+        <dict>
+            <key>Mumbai, India</key>
+            <integer>7020</integer>
+        </dict>
+        <dict>
+            <key>New Delhi, India</key>
+            <integer>7024</integer>
         </dict>
     </array>
 </plist>
