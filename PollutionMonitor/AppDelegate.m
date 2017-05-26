@@ -209,7 +209,7 @@ typedef enum
     self.currentCityId = cityCode;
     [self tickSelectedCity:cityCode];
     
-    NSString *feedUrl = @"https://feed.aqicn.org/xservices/refresh";
+    NSString *feedUrl = @"http://feed.aqicn.org/xservices/refresh";
     //    NSString *uuidString = [[NSUUID UUID] UUIDString];
     //    NSString *sha1Hash = [[uuidString sha1Hash] lowercaseString];
     
