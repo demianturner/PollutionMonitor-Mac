@@ -47,6 +47,10 @@
 		<integer>1282</integer>
 	</dict>
 	<dict>
+		<key>Nanjing</key>
+		<real>1485</real>
+	</dict>
+	<dict>
 		<key>London, UK</key>
 		<integer>5724</integer>
 	</dict>
@@ -57,6 +61,14 @@
 	<dict>
 		<key>New Delhi, India</key>
 		<integer>7024</integer>
+	</dict>
+	<dict>
+		<key>Singapore</key>
+		<real>1666</real>
+	</dict>
+	<dict>
+		<key>Seoul, South Korea</key>
+		<real>5508</real>
 	</dict>
 </array>
 </plist>
