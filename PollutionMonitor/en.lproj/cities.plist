@@ -3,72 +3,89 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>Shanghai</key>
-		<integer>1437</integer>
-	</dict>
-	<dict>
-		<key>Beijing</key>
-		<integer>1451</integer>
-	</dict>
-	<dict>
-		<key>Guangzhou</key>
-		<integer>1449</integer>
-	</dict>
-	<dict>
-		<key>Shenzhen</key>
-		<integer>1539</integer>
-	</dict>
-	<dict>
-		<key>Tianjin</key>
-		<real>1452</real>
-	</dict>
-	<dict>
-		<key>Hong Kong</key>
-		<integer>3308</integer>
-	</dict>
-	<dict>
-		<key>Dongguan</key>
-		<integer>1547</integer>
-	</dict>
-	<dict>
-		<key>Hangzhou</key>
-		<integer>1439</integer>
-	</dict>
-	<dict>
-		<key>Chengdu</key>
-		<integer>1450</integer>
-	</dict>
-	<dict>
-		<key>Haerbin</key>
-		<real>1481</real>
-	</dict>
-	<dict>
-		<key>Taiping Hongwei Park, Haerbin</key>
-		<integer>1282</integer>
-	</dict>
-	<dict>
-		<key>Nanjing</key>
-		<real>1485</real>
-	</dict>
-	<dict>
-		<key>London, UK</key>
-		<integer>5724</integer>
-	</dict>
-	<dict>
-		<key>Mumbai, India</key>
-		<integer>7020</integer>
-	</dict>
-	<dict>
-		<key>New Delhi, India</key>
-		<integer>7024</integer>
-	</dict>
-	<dict>
+		<key>China</key>
+		<array>
+			<dict>
+				<key>Shanghai</key>
+				<integer>1437</integer>
+			</dict>
+			<dict>
+				<key>Beijing</key>
+				<integer>1451</integer>
+			</dict>
+			<dict>
+				<key>Guangzhou</key>
+				<integer>1449</integer>
+			</dict>
+			<dict>
+				<key>Shenzhen</key>
+				<integer>1539</integer>
+			</dict>
+			<dict>
+				<key>Tianjin</key>
+				<real>1452</real>
+			</dict>
+			<dict>
+				<key>Hong Kong</key>
+				<integer>3308</integer>
+			</dict>
+			<dict>
+				<key>Dongguan</key>
+				<integer>1547</integer>
+			</dict>
+			<dict>
+				<key>Hangzhou</key>
+				<integer>1439</integer>
+			</dict>
+			<dict>
+				<key>Chengdu</key>
+				<integer>1450</integer>
+			</dict>
+			<dict>
+				<key>Haerbin</key>
+				<real>1481</real>
+			</dict>
+			<dict>
+				<key>Taiping Hongwei Park, Haerbin</key>
+				<integer>1282</integer>
+			</dict>
+			<dict>
+				<key>Nanjing</key>
+				<real>1485</real>
+			</dict>
+		</array>
+		<key>UK</key>
+		<array>
+			<dict>
+				<key>London</key>
+				<integer>5724</integer>
+			</dict>
+		</array>
+		<key>India</key>
+		<array>
+			<dict>
+				<key>Mumbai</key>
+				<integer>7020</integer>
+			</dict>
+			<dict>
+				<key>New Delhi</key>
+				<integer>7024</integer>
+			</dict>
+		</array>
 		<key>Singapore</key>
-		<real>1666</real>
-	</dict>
-	<dict>
-		<key>Seoul, South Korea</key>
-		<real>5508</real>
+		<array>
+			<dict>
+				<key>Singapore</key>
+				<real>1666</real>
+			</dict>
+		</array>
+		<key>South Korea</key>
+		<array>
+			<dict>
+				<key>Seoul</key>
+				<real>5508</real>
+			</dict>
+		</array>
 	</dict>
 </array>
 </plist>
